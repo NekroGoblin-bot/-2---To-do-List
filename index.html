@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f7f6f2" />
+    <title>morrow — a calmer to-do list</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="#all" aria-label="morrow home"><span class="brand-mark">✳</span><span>morrow</span></a>
+        <div class="topbar-actions">
+          <span class="today-label" id="todayLabel"></span>
+          <button class="icon-button" id="themeToggle" type="button" aria-label="Switch to dark theme" title="Toggle theme"><span id="themeIcon">☾</span></button>
+        </div>
+      </header>
+
+      <main class="main-content">
+        <section class="intro" aria-labelledby="pageTitle">
+          <p class="eyebrow">A little room for today</p>
+          <h1 id="pageTitle">Make space for<br /><em>what matters.</em></h1>
+          <p class="intro-copy">Keep your day light, one small thing at a time.</p>
+        </section>
+
+        <nav class="view-nav" aria-label="Task views">
+          <button class="view-tab active" data-view="all" type="button"><span>All active</span><span class="tab-count" id="allCount">0</span></button>
+          <button class="view-tab" data-view="today" type="button"><span>Today</span><span class="tab-count" id="todayCount">0</span></button>
+          <button class="view-tab" data-view="upcoming" type="button"><span>Upcoming</span><span class="tab-count" id="upcomingCount">0</span></button>
+          <button class="view-tab" data-view="history" type="button"><span>History</span><span class="tab-count" id="historyCount">0</span></button>
+        </nav>
+
+        <section class="task-section" aria-live="polite">
+          <div class="section-heading">
+            <div>
+              <p class="section-kicker" id="sectionKicker">YOUR TASKS</p>
+              <h2 id="sectionTitle">Today, gently</h2>
+            </div>
+            <div class="progress-wrap" id="progressWrap"><span id="progressText">0 of 0 completed</span><span class="progress-track"><span id="progressBar"></span></span></div>
+          </div>
+
+          <form class="add-task" id="addForm">
+            <label class="sr-only" for="taskInput">Add a task</label>
+            <span class="add-symbol">＋</span>
+            <input id="taskInput" type="text" maxlength="140" autocomplete="off" placeholder="What needs a little attention?" />
+            <button class="add-button" type="submit">Add task <span>↵</span></button>
+          </form>
+
+          <div class="task-list" id="taskList"></div>
+          <div class="empty-state" id="emptyState" hidden></div>
+        </section>
+      </main>
+
+      <div class="toast" id="toast" role="status" aria-live="polite"><span id="toastMessage"></span><button id="undoButton" type="button">Undo</button></div>
+      <footer class="footer"><span>Made for the in-between moments</span><span class="footer-dot">•</span><span id="taskTotal"></span></footer>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

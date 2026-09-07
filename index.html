@@ -15,7 +15,7 @@
       <header class="topbar">
         <a class="brand" href="#all" aria-label="morrow home"><span class="brand-mark">✳</span><span>morrow</span></a>
         <div class="topbar-actions">
-          <span class="today-label" id="todayLabel"></span>
+          <span class="today-label" id="todayLabel">Today</span>
           <button class="icon-button" id="themeToggle" type="button" aria-label="Switch to dark theme" title="Toggle theme"><span id="themeIcon">☾</span></button>
         </div>
       </header>
@@ -32,6 +32,7 @@
           <button class="view-tab" data-view="today" type="button"><span>Today</span><span class="tab-count" id="todayCount">0</span></button>
           <button class="view-tab" data-view="upcoming" type="button"><span>Upcoming</span><span class="tab-count" id="upcomingCount">0</span></button>
           <button class="view-tab" data-view="history" type="button"><span>History</span><span class="tab-count" id="historyCount">0</span></button>
+          <button class="view-tab" data-view="calendar" type="button"><span>Calendar</span></button>
         </nav>
 
         <section class="task-section" aria-live="polite">
@@ -52,6 +53,22 @@
 
           <div class="task-list" id="taskList"></div>
           <div class="empty-state" id="emptyState" hidden></div>
+        </section>
+
+        <section class="calendar-section" id="calendarSection" aria-live="polite" hidden>
+          <div class="calendar-heading">
+            <div>
+              <p class="section-kicker">PLAN YOUR MONTH</p>
+              <h2 id="calendarTitle">Month</h2>
+            </div>
+            <div class="calendar-controls">
+              <button class="small-button" data-calendar-action="previous" type="button" aria-label="Previous month">←</button>
+              <button class="small-button calendar-today" data-calendar-action="today" type="button">Today</button>
+              <button class="small-button" data-calendar-action="next" type="button" aria-label="Next month">→</button>
+            </div>
+          </div>
+          <div class="calendar-grid" id="calendarGrid"></div>
+          <p class="calendar-hint">Click a task to view or edit it.</p>
         </section>
       </main>
 
